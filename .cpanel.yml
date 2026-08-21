@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/hg3ads37/produto.joeweider.com.br/
+    - export DEPLOYPATH=/home2/hg3ads37/produto.joeweider.com.br/playbook-treinamento-corporativo/
     - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -f index.html $DEPLOYPATH
     - /bin/cp -Rf assets $DEPLOYPATH
