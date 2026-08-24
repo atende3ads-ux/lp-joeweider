@@ -1,0 +1,12 @@
+# Playbook Treinamento Corporativo 4.0
+
+Arquivo de compatibilidade para agentes que procuram `llm.txt` no singular. A versão recomendada e completa está em:
+
+https://produto.joeweider.com.br/llms.txt
+
+Página oficial do produto:
+
+https://produto.joeweider.com.br/playbook-treinamento-corporativo/
+
+O Playbook Treinamento Corporativo 4.0, de Joe Weider e Instituto Axon, é um guia digital para consultores, instrutores e mentores criarem, venderem e entregarem programas corporativos com inteligência artificial, neurociência aplicada, frameworks, scripts e métricas de ROI.
+
