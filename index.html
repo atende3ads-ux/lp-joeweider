@@ -574,8 +574,8 @@
       transform: translateY(-5px);
       box-shadow: 0 2px 4px rgba(0,0,0,.35), 0 30px 60px -32px rgba(0,0,0,.8);
     }
-    .shot { position: relative; overflow: hidden; }
-    .shot img { display: block; width: 100%; }
+    .shot { position: relative; overflow: hidden; aspect-ratio: 827 / 1170; }
+    .shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .shot .wm {
       position: absolute;
       inset: 0;
@@ -827,12 +827,12 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
-      align-items: start;
+      align-items: stretch;
       max-width: 540px;
       margin: 0 auto;
     }
     .price-card { width: 100%; max-width: none; margin-inline: 0; padding: 18px; display: flex; flex-direction: column; }
-    .price-card .price-block { margin-top: 0; }
+    .price-card .price-block { margin-top: auto; }
     .offer-card--alt {
       background: var(--paper-2);
       border-color: var(--cyan-line);
@@ -921,8 +921,33 @@
     .price-now .cents { font-size: 24px; letter-spacing: -.01em; }
     .price-note { font-size: 13px; color: var(--faint); margin-top: 8px; }
 
-    /* ── Conversão principal · Checkout Hotmart ── */
-    .checkout-primary { scroll-margin-top: 24px; }
+    /* ── Conversão principal · enquadramento da oferta e checkout Hotmart ── */
+    .offer-card--primary { scroll-margin-top: 20px; }
+    .btn.checkout-primary.hotmart__button-checkout {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      min-height: 48px;
+      padding: 15px 15px 15px 30px;
+      border: none;
+      border-radius: 999px;
+      background: var(--accent-bright) !important;
+      color: var(--ink-2) !important;
+      font-family: var(--sans);
+      font-size: 15.5px;
+      font-weight: 600;
+      line-height: 1.65;
+      letter-spacing: -.01em;
+      text-shadow: none;
+      box-shadow: 0 1px 2px rgba(0,0,0,.35), 0 14px 32px -14px rgba(33,182,212,.5);
+      transition: transform .2s var(--ease), background .2s, box-shadow .2s;
+    }
+    .btn.checkout-primary.hotmart__button-checkout:hover,
+    .btn.checkout-primary.hotmart__button-checkout:focus {
+      background: #7CE2F5 !important;
+    }
 
     /* ── CTA final (banda escura) ── */
     .final-cta { text-align: center; padding: 84px 0; }
@@ -1050,8 +1075,8 @@
       .hero { padding: 56px 0 96px; min-height: 740px; }
       .final-cta { padding: 112px 0; }
       .for-whom-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .offers-grid { grid-template-columns: 1fr; max-width: 540px; gap: 24px; }
-      .product-row { min-height: 0; }
+      .offers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 1000px; gap: 24px; }
+      .product-row { min-height: 60px; }
       .mockup-wrap { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: none; margin: 0; }
       .proof-pills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .authority-row { justify-content: space-between; text-align: left; }
@@ -1073,28 +1098,6 @@
       .hero::before { background: linear-gradient(90deg, rgba(0,12,23,.92) 0%, rgba(0,12,23,.6) 40%, rgba(0,12,23,.1) 66%, rgba(0,12,23,0) 80%); }
       .pain-grid, .outcome-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
-      .offer-card--alt {
-        display: grid;
-        grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
-        grid-template-areas:
-          "header header"
-          "includes price"
-          "includes cta"
-          "flag foot";
-        gap: 18px 30px;
-        align-items: start;
-      }
-      .offer-card--alt .product-row {
-        grid-area: header;
-        border-bottom: 1px solid var(--line);
-        padding-bottom: 18px;
-        margin-bottom: 0;
-      }
-      .offer-card--alt .includes { grid-area: includes; margin-bottom: 0; }
-      .offer-card--alt .offer-flag { grid-area: flag; margin-bottom: 0; }
-      .offer-card--alt .price-block { grid-area: price; margin-bottom: 0; }
-      .offer-card--alt .btn { grid-area: cta; }
-      .offer-card--alt .offer-foot { grid-area: foot; margin-top: 0; }
     }
 
     @media (min-width: 1440px) {
@@ -1126,7 +1129,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 <div class="topbar">
   <span class="tb-chip">Oferta de lançamento</span>
   <span class="tb-txt">Playbook por R$ 39,90 (de R$ 99,90) · Acesso imediato e vitalício</span>
-  <a href="#checkout-playbook" data-cta-location="topbar">Garantir agora →</a>
+  <a href="#oferta-playbook" data-cta-location="topbar">Garantir agora →</a>
 </div>
 
 <!-- ── Hero ─────────────────────────────────── -->
@@ -1149,7 +1152,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       </p>
 
       <div>
-        <a href="#checkout-playbook" class="btn btn--light" data-cta-location="hero">Quero o Playbook agora
+        <a href="#oferta-playbook" class="btn btn--light" data-cta-location="hero">Quero o Playbook agora
           <span class="arr">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </span>
@@ -1360,7 +1363,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     </div>
 
     <div class="cta-wrap rv">
-      <a href="#checkout-playbook" class="btn" data-cta-location="modules">Quero acesso aos 7 módulos
+      <a href="#oferta-playbook" class="btn" data-cta-location="modules">Quero acesso aos 7 módulos
         <span class="arr">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </span>
@@ -1475,8 +1478,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 
     <div class="offers-grid">
 
-      <div class="offer-card price-card offer-card--primary rv">
-        <div class="offer-summary">
+      <div class="offer-card price-card offer-card--primary rv" id="oferta-playbook">
         <div class="product-row">
           <span class="product-ico">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
@@ -1503,12 +1505,12 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
           <p class="price-now"><sup>R$</sup>39<span class="cents">,90</span></p>
           <p class="price-note">Pagamento único · Sem mensalidade</p>
         </div>
-        </div>
         <!-- Conversão principal · Checkout Hotmart -->
         <a
           id="checkout-playbook"
-          class="btn btn--full checkout-primary"
-          href="https://pay.hotmart.com/R107300924E?bid=1787597709306"
+          class="btn btn--full checkout-primary hotmart-fb hotmart__button-checkout"
+          href="https://pay.hotmart.com/R107300924E?checkoutMode=2"
+          onclick="return false;"
           data-cta-location="offer-primary"
           data-checkout-provider="hotmart"
         >
@@ -1546,7 +1548,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
           <p class="price-now"><sup>R$</sup>179<span class="cents">,90</span></p>
           <p class="price-note">Sessão individual · Vagas limitadas</p>
         </div>
-        <a href="#checkout-playbook" class="btn btn--full btn--ghost btn--ghost-link" data-cta-location="diagnostic-card">Incluso na compra do Playbook</a>
+        <a href="#oferta-playbook" class="btn btn--full btn--ghost btn--ghost-link" data-cta-location="diagnostic-card">Incluso na compra do Playbook</a>
         <p class="offer-foot">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
           Garanta o Playbook e a sessão entra de brinde
@@ -1628,7 +1630,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       Esse Playbook é esse sistema. Por R$ 39,90.
     </p>
     <div class="rv d2">
-      <a href="#checkout-playbook" class="btn btn--light" data-cta-location="final">Garantir meu acesso
+      <a href="#oferta-playbook" class="btn btn--light" data-cta-location="final">Garantir meu acesso
         <span class="arr">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </span>
@@ -1663,6 +1665,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
   (function () {
     var checkout = document.getElementById('checkout-playbook');
     if (!checkout) return;
+    var offerTarget = document.getElementById('oferta-playbook');
 
     /* Preserva UTMs, gclid, fbclid e demais parâmetros recebidos pela landing page. */
     var pageParams = new URLSearchParams(window.location.search);
@@ -1672,8 +1675,31 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     });
     checkout.href = checkoutUrl.toString();
 
-    document.querySelectorAll('a[href="#checkout-playbook"]').forEach(function (cta) {
-      cta.addEventListener('click', function () {
+    document.querySelectorAll('a[href="#oferta-playbook"]').forEach(function (cta) {
+      cta.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        if (offerTarget) {
+          var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          offerTarget.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+
+          if (window.history && window.history.pushState) {
+            window.history.pushState(null, '', '#oferta-playbook');
+          }
+
+          /* Mantém o card enquadrado enquanto imagens lazy acima dele terminam de carregar. */
+          [250, 550, 950, 1500, 2300, 3200].forEach(function (delay) {
+            window.setTimeout(function () {
+              var delta = offerTarget.getBoundingClientRect().top - 20;
+              if (Math.abs(delta) < 2) return;
+              var previousBehavior = document.documentElement.style.scrollBehavior;
+              document.documentElement.style.scrollBehavior = 'auto';
+              window.scrollBy(0, delta);
+              document.documentElement.style.scrollBehavior = previousBehavior;
+            }, delay);
+          });
+        }
+
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: 'cta_offer_click',
@@ -1823,6 +1849,25 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       });
     }, { threshold: .08, rootMargin: '0px 0px -32px 0px' });
     els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script>
+  /* Widget modal oficial da Hotmart. */
+  (function importHotmart() {
+    if (!document.querySelector('script[src="https://static.hotmart.com/checkout/widget.min.js"]')) {
+      var imported = document.createElement('script');
+      imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
+      document.head.appendChild(imported);
+    }
+
+    if (!document.querySelector('link[href="https://static.hotmart.com/css/hotmart-fb.min.css"]')) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+      document.head.appendChild(link);
+    }
   })();
 </script>
 
