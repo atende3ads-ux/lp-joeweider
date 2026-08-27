@@ -1666,6 +1666,25 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     var checkout = document.getElementById('checkout-playbook');
     if (!checkout) return;
     var offerTarget = document.getElementById('oferta-playbook');
+    var ga4MeasurementId = 'G-Z5501V90ND';
+    var product = {
+      item_id: 'R107300924E',
+      item_name: 'Playbook Treinamento Corporativo 4.0',
+      price: 39.90,
+      quantity: 1
+    };
+
+    function pushDataLayer(eventName, parameters) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: eventName }, parameters || {}));
+    }
+
+    /* Envia ao Google tag já carregado pelo GTM, sem depender de um acionador personalizado. */
+    function sendGa4Event(eventName, parameters) {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      window.gtag('event', eventName, Object.assign({ send_to: ga4MeasurementId }, parameters || {}));
+    }
 
     /* Preserva UTMs, gclid, fbclid e demais parâmetros recebidos pela landing page. */
     var pageParams = new URLSearchParams(window.location.search);
@@ -1700,9 +1719,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
           });
         }
 
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: 'cta_offer_click',
+        pushDataLayer('cta_offer_click', {
           cta_location: cta.dataset.ctaLocation || 'unknown',
           cta_target: 'checkout_playbook',
           page_slug: 'playbook-treinamento-corporativo'
@@ -1710,24 +1727,76 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       });
     });
 
-    checkout.addEventListener('click', function () {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'begin_checkout',
+    /*
+     * Usa a fase de captura para registrar o clique antes do widget da Hotmart.
+     * Assim o evento não depende da ordem dos listeners instalados pelo script externo.
+     */
+    document.addEventListener('click', function (event) {
+      var target = event.target.closest && event.target.closest('#checkout-playbook');
+      if (!target) return;
+
+      var clickParameters = {
+        cta_location: 'offer_primary',
+        checkout_provider: 'hotmart',
+        page_slug: 'playbook-treinamento-corporativo'
+      };
+
+      pushDataLayer('checkout_cta_click', clickParameters);
+      sendGa4Event('checkout_cta_click', clickParameters);
+    }, true);
+
+    /* Confirma que o pop-up realmente abriu ao detectar o iframe do checkout. */
+    var checkoutOpenTracked = false;
+    var checkoutObserver;
+
+    function findHotmartCheckoutFrame() {
+      return Array.prototype.find.call(document.querySelectorAll('iframe'), function (frame) {
+        try {
+          return new URL(frame.src, window.location.href).hostname === 'pay.hotmart.com';
+        } catch (error) {
+          return false;
+        }
+      });
+    }
+
+    function trackCheckoutOpen() {
+      if (checkoutOpenTracked || !findHotmartCheckoutFrame()) return;
+      checkoutOpenTracked = true;
+
+      var ecommerce = {
+        currency: 'BRL',
+        value: 39.90,
+        items: [product]
+      };
+
+      pushDataLayer('hotmart_checkout_open', {
         cta_location: 'offer_primary',
         checkout_provider: 'hotmart',
         page_slug: 'playbook-treinamento-corporativo',
-        ecommerce: {
-          currency: 'BRL',
-          value: 39.90,
-          items: [{
-            item_id: 'R107300924E',
-            item_name: 'Playbook Treinamento Corporativo 4.0',
-            price: 39.90,
-            quantity: 1
-          }]
-        }
+        ecommerce: ecommerce
       });
+
+      sendGa4Event('begin_checkout', {
+        currency: ecommerce.currency,
+        value: ecommerce.value,
+        items: ecommerce.items,
+        checkout_provider: 'hotmart',
+        page_slug: 'playbook-treinamento-corporativo'
+      });
+
+      if (checkoutObserver) checkoutObserver.disconnect();
+    }
+
+    checkoutObserver = new MutationObserver(trackCheckoutOpen);
+    checkoutObserver.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['src']
+    });
+
+    [0, 250, 750, 1500, 3000].forEach(function (delay) {
+      window.setTimeout(trackCheckoutOpen, delay);
     });
   })();
 
