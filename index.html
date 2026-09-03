@@ -1069,11 +1069,10 @@
 
     /* ── Mobile first: ampliações progressivas ── */
     @media (max-width: 560px) {
-      .hero {
-        min-height: 1080px;
-        padding-bottom: 160px;
+      .hero-cta {
+        position: relative;
+        top: clamp(0px, calc((100vw - 320px) * 2.15), 150px);
       }
-      .hero-bg img { object-position: center bottom; }
     }
 
     @media (min-width: 561px) {
@@ -1170,7 +1169,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         para <strong>Consultores, Instrutores e Mentores</strong> que querem um sistema, não mais um curso.
       </p>
 
-      <div>
+      <div class="hero-cta">
         <a href="#oferta-playbook" class="btn btn--light" data-cta-location="hero">Quero o Playbook agora
           <span class="arr">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
