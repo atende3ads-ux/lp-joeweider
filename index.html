@@ -1068,6 +1068,14 @@
     .faq-panel p { padding: 16px 0 20px; font-size: 15px; line-height: 1.7; }
 
     /* ── Mobile first: ampliações progressivas ── */
+    @media (max-width: 560px) {
+      .hero {
+        min-height: 1080px;
+        padding-bottom: 160px;
+      }
+      .hero-bg img { object-position: center bottom; }
+    }
+
     @media (min-width: 561px) {
       .wrap, .narrow { padding-inline: 24px; }
       .hero-logo { height: 46px; }
