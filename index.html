@@ -1069,9 +1069,10 @@
 
     /* ── Mobile first: ampliações progressivas ── */
     @media (max-width: 560px) {
+      .hero { min-height: clamp(875px, calc(1182px - 78.6vw), 930px); }
       .hero-cta {
         position: relative;
-        top: clamp(0px, calc((100vw - 320px) * 2.15), 150px);
+        top: clamp(100px, calc(100px + (100vw - 320px) * .72), 150px);
       }
     }
 
