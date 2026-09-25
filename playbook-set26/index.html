@@ -683,64 +683,25 @@
     .ba-card--before .ba-list strong { color: #D0DCE4; }
     .ba-pivot {
       grid-column: 1 / -1;
-      position: relative;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      text-align: left;
-      background: var(--dark);
-      border: 1px solid var(--cyan-line);
-      border-radius: var(--r-card);
-      padding: 34px 40px;
-      overflow: hidden;
-    }
-    .ba-pivot::before {
-      content: '';
-      position: absolute;
-      width: 720px; height: 720px;
-      right: -260px; top: 50%;
-      transform: translateY(-50%);
-      background: radial-gradient(circle at 50% 50%, rgba(33,182,212,.22), transparent 55%);
-      pointer-events: none;
+      text-align: center;
+      padding: 36px 24px 0;
     }
     .ba-pivot-txt { max-width: 720px; }
-    .ba-pivot::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-      background-size: 36px 36px;
-      -webkit-mask-image: radial-gradient(circle at 50% 50%, #000, transparent 70%);
-      mask-image: radial-gradient(circle at 50% 50%, #000, transparent 70%);
-      pointer-events: none;
-    }
-    .ba-pivot > * { position: relative; z-index: 1; }
     .ba-pivot .chip { margin-bottom: 18px; }
     .ba-pivot h3 {
       font-family: var(--display);
-      font-size: 26px;
+      font-size: clamp(24px, 2.6vw, 30px);
       font-weight: 700;
       letter-spacing: -.028em;
       line-height: 1.18;
       color: #fff;
       margin-bottom: 10px;
     }
-    .ba-pivot p { font-size: 15px; line-height: 1.65; }
-    .ba-ring {
-      flex-shrink: 0;
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      border: 1px solid var(--cyan-line);
-      background: var(--cyan-pale);
-      color: var(--accent-bright);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 0 10px rgba(33,182,212,.06), 0 0 0 22px rgba(33,182,212,.03);
-    }
+    .ba-pivot p { font-size: 15.5px; line-height: 1.65; }
+    .cta-wrap--tight { margin-top: 28px; }
 
     .ck-ico {
       width: 22px; height: 22px;
@@ -1291,9 +1252,7 @@
       .step-row.flip .step-card { order: 2; }
       .step-big { min-height: 200px; }
       .ba-grid { grid-template-columns: 1fr; max-width: 640px; margin: 0 auto; }
-      .ba-pivot { flex-direction: column; align-items: flex-start; gap: 22px; padding: 30px 26px; }
-      .ba-pivot::before { right: -320px; top: auto; bottom: -420px; transform: none; }
-      .ba-ring { width: 56px; height: 56px; }
+      .ba-pivot { padding: 28px 8px 0; }
       .exp-grid { grid-template-columns: 1fr 1fr; }
       .exp-card--trio { grid-column: 1 / -1; }
       .author-box { grid-template-columns: 1fr; gap: 36px; }
@@ -1618,10 +1577,9 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
           <h3>Seu conhecimento ganha método, oferta e posicionamento</h3>
           <p>Você passa a organizar o que sabe em uma estrutura que pode ser apresentada, adaptada e aplicada em diferentes projetos.</p>
         </div>
-        <span class="ba-ring" aria-hidden="true"><svg class="ico ico--l"><use href="#i-arrow"/></svg></span>
       </div>
     </div>
-    <div class="cta-wrap rv">
+    <div class="cta-wrap cta-wrap--tight rv">
       <a href="#oferta-playbook" data-cta-location="transformation" class="btn">Quero começar minha virada
         <span class="arr"><svg class="ico ico--s"><use href="#i-arrow"/></svg></span>
       </a>
