@@ -6,6 +6,19 @@ Landing page de vendas do Instituto Axon, criada para Joe Weider.
 
 `https://produto.joeweider.com.br/playbook-treinamento-corporativo/`
 
+## LP /playbook-set26
+
+Nova versão da página com a copy de setembro/2026, em `playbook-set26/index.html`. Usa os mesmos `assets/` da raiz, o mesmo checkout Hotmart, GTM, GA4 e Clarity da LP principal. Os eventos no `dataLayer` são os mesmos de `RASTREAMENTO-GTM.md`, com `page_slug: playbook-set26`.
+
+- GitHub Pages: `https://atende3ads-ux.github.io/lp-joeweider/playbook-set26/`
+- O `.cpanel.yml` ainda publica somente a LP principal.
+
+Pendências:
+
+- Preencher `WHATSAPP_NUMERO` no script do final da página. Sem número, o botão "Falar sobre o Playbook" leva ao FAQ.
+- Garantia: o bloco da oferta e a pergunta "E se eu comprar e não gostar?" estão comentados no HTML até a validação com cliente/Hotmart.
+- Rodapé: CNPJ, e-mail de suporte, telefone, WhatsApp e link de "Termos de Compra".
+
 ## Publicação no cPanel
 
 1. Abra o Gerenciador de Arquivos do cPanel.
