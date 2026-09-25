@@ -672,7 +672,7 @@
     /* ── Antes · Virada · Depois ── */
     .ba-grid {
       display: grid;
-      grid-template-columns: 1fr .8fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 18px;
       align-items: stretch;
     }
@@ -710,25 +710,29 @@
     .ba-list span.t { font-size: 14px; line-height: 1.6; }
     .ba-card--before .ba-list strong { color: #D0DCE4; }
     .ba-pivot {
+      grid-column: 1 / -1;
       position: relative;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
+      justify-content: space-between;
+      gap: 32px;
+      text-align: left;
       background: var(--dark);
       border: 1px solid var(--cyan-line);
       border-radius: var(--r-card);
-      padding: 40px 28px;
+      padding: 34px 40px;
       overflow: hidden;
     }
     .ba-pivot::before {
       content: '';
       position: absolute;
-      inset: -40%;
+      width: 720px; height: 720px;
+      right: -260px; top: 50%;
+      transform: translateY(-50%);
       background: radial-gradient(circle at 50% 50%, rgba(33,182,212,.22), transparent 55%);
       pointer-events: none;
     }
+    .ba-pivot-txt { max-width: 720px; }
     .ba-pivot::after {
       content: '';
       position: absolute;
@@ -742,20 +746,20 @@
       pointer-events: none;
     }
     .ba-pivot > * { position: relative; z-index: 1; }
-    .ba-pivot .chip { margin-bottom: 26px; }
+    .ba-pivot .chip { margin-bottom: 18px; }
     .ba-pivot h3 {
       font-family: var(--display);
-      font-size: 25px;
+      font-size: 26px;
       font-weight: 700;
       letter-spacing: -.028em;
       line-height: 1.18;
       color: #fff;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
-    .ba-pivot p { font-size: 14.5px; line-height: 1.65; }
+    .ba-pivot p { font-size: 15px; line-height: 1.65; }
     .ba-ring {
-      margin-top: 30px;
-      width: 60px; height: 60px;
+      flex-shrink: 0;
+      width: 72px; height: 72px;
       border-radius: 50%;
       border: 1px solid var(--cyan-line);
       background: var(--cyan-pale);
@@ -1318,7 +1322,9 @@
       .step-row.flip .step-card { order: 2; }
       .step-big { min-height: 200px; }
       .ba-grid { grid-template-columns: 1fr; max-width: 640px; margin: 0 auto; }
-      .ba-ring .ico { transform: rotate(90deg); }
+      .ba-pivot { flex-direction: column; align-items: flex-start; gap: 22px; padding: 30px 26px; }
+      .ba-pivot::before { right: -320px; top: auto; bottom: -420px; transform: none; }
+      .ba-ring { width: 56px; height: 56px; }
       .exp-grid { grid-template-columns: 1fr 1fr; }
       .exp-card--trio { grid-column: 1 / -1; }
       .author-box { grid-template-columns: 1fr; gap: 36px; }
@@ -1632,13 +1638,6 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </ul>
       </div>
 
-      <div class="ba-pivot rv d1">
-        <span class="chip"><svg class="ico"><use href="#i-flag"/></svg>A virada</span>
-        <h3>Seu conhecimento ganha método, oferta e posicionamento</h3>
-        <p>Você passa a organizar o que sabe em uma estrutura que pode ser apresentada, adaptada e aplicada em diferentes projetos.</p>
-        <span class="ba-ring" aria-hidden="true"><svg class="ico ico--l"><use href="#i-arrow"/></svg></span>
-      </div>
-
       <div class="ba-card ba-card--after rv d2">
         <span class="chip"><svg class="ico"><use href="#i-trend-up"/></svg>Depois</span>
         <ul class="ba-list">
@@ -1648,6 +1647,15 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
           <li><span class="ck-ico"><svg class="ico ico--xs"><use href="#i-check"/></svg></span><span><strong>O projeto pode abrir caminho para continuidade</strong><span class="t">Mensuração e acompanhamento ajudam a sustentar conversas sobre expansão, novos ciclos e renovação.</span></span></li>
           <li><span class="ck-ico"><svg class="ico ico--xs"><use href="#i-check"/></svg></span><span><strong>Sua receita deixa de depender somente da próxima hora vendida</strong><span class="t">Cada programa pode gerar continuidade e você começa a construir uma atuação menos presa a projetos isolados.</span></span></li>
         </ul>
+      </div>
+
+      <div class="ba-pivot rv d2">
+        <div class="ba-pivot-txt">
+          <span class="chip"><svg class="ico"><use href="#i-flag"/></svg>A virada</span>
+          <h3>Seu conhecimento ganha método, oferta e posicionamento</h3>
+          <p>Você passa a organizar o que sabe em uma estrutura que pode ser apresentada, adaptada e aplicada em diferentes projetos.</p>
+        </div>
+        <span class="ba-ring" aria-hidden="true"><svg class="ico ico--l"><use href="#i-arrow"/></svg></span>
       </div>
     </div>
     <div class="cta-wrap rv">
