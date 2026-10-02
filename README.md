@@ -19,6 +19,21 @@ Pendências:
 - Garantia: o bloco da oferta e a pergunta "E se eu comprar e não gostar?" estão comentados no HTML até a validação com cliente/Hotmart.
 - Rodapé: CNPJ, e-mail de suporte, telefone, WhatsApp e link de "Termos de Compra".
 
+## LP /acelerador (protótipo)
+
+Página do Axon Acelerador de Negócios, em `acelerador/index.html`. Mesma diagramação da `/playbook-set26`, tema escuro com o rosa do Instituto (#E92063). Captação por formulário, sem checkout.
+
+- GitHub Pages: `https://atende3ads-ux.github.io/lp-joeweider/acelerador/`
+- Rastreamento: GTM e Clarity da LP principal; eventos `cta_form_click`, `lead_form_submit`, `whatsapp_click` e `faq_toggle` com `page_slug: acelerador`.
+- WhatsApp (62) 99200-5555 com a mensagem da copy já preenchida.
+
+Pendências:
+
+- Formulário: preencher `FORM_ENDPOINT` no script do final da página com a URL que vai receber o POST (Formspree, Make, n8n…). Sem endpoint, o protótipo só mostra a mensagem "Recebemos sua solicitação".
+- Logos autorizados (seção Experiência), exemplos reais de painéis/processos/planos e casos com depoimento (seção "Como o trabalho ganha forma", hoje com espaços marcados "Exemplo ilustrativo").
+- FAQ: "Os encontros são online ou presenciais?" e "Qual é a frequência dos encontros?" estão comentadas até confirmação comercial.
+- Rodapé: link da Política de Privacidade, razão social, CNPJ e e-mail institucional.
+
 ## Publicação no cPanel
 
 1. Abra o Gerenciador de Arquivos do cPanel.
