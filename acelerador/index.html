@@ -836,26 +836,27 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
-    .proof-ph {
+    .proof-thumb {
       position: relative;
-      min-height: 260px;
+      margin: 0;
       border-radius: 18px;
-      border: 1px dashed var(--line-2);
-      background:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-      background-size: 28px 28px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      text-align: center;
-      padding: 28px;
+      overflow: hidden;
+      border: 1px solid var(--line-2);
+      background: var(--surface);
+      box-shadow: var(--shadow-card);
+      transition: transform .3s var(--ease), border-color .3s;
     }
-    .proof-ph .tile { width: 56px; height: 56px; border-radius: 17px; }
-    .proof-ph strong { color: var(--ink); font-size: 16px; font-weight: 600; }
-    .proof-ph .chip { position: absolute; top: 14px; right: 14px; padding: 5px 10px 5px 8px; font-size: 10px; }
+    .proof-thumb:hover { transform: translateY(-5px); border-color: var(--pink-line); }
+    .proof-thumb img { width: 100%; height: auto; aspect-ratio: 1320 / 900; object-fit: cover; }
+    .proof-thumb .chip {
+      position: absolute;
+      top: 12px; right: 12px;
+      padding: 5px 10px 5px 8px;
+      font-size: 10px;
+      background: rgba(7,4,9,.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
 
     /* ── FAQ ── */
     .faq-list { display: flex; flex-direction: column; gap: 10px; }
@@ -1588,21 +1589,18 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
          ou por exemplos marcados como "Exemplo ilustrativo". Com autorização, entram também casos e depoimentos reais
          (contexto da empresa · desafio · trabalho realizado · mudança observada · período). Não incluir resultados simulados. -->
     <div class="proof-grid">
-      <div class="proof-ph rv">
+      <figure class="proof-thumb rv">
+        <img src="../assets/forma-painel.webp" width="1325" height="957" alt="Painel · exemplo ilustrativo" loading="lazy" decoding="async">
         <span class="chip chip--ghost">Exemplo ilustrativo</span>
-        <span class="tile"><svg class="ico ico--l"><use href="#i-layout"/></svg></span>
-        <strong>Painel</strong>
-      </div>
-      <div class="proof-ph rv d1">
+      </figure>
+      <figure class="proof-thumb rv d1">
+        <img src="../assets/forma-mapa-de-processo.webp" width="1308" height="897" alt="Mapa de processo · exemplo ilustrativo" loading="lazy" decoding="async">
         <span class="chip chip--ghost">Exemplo ilustrativo</span>
-        <span class="tile"><svg class="ico ico--l"><use href="#i-map"/></svg></span>
-        <strong>Mapa de processo</strong>
-      </div>
-      <div class="proof-ph rv d2">
+      </figure>
+      <figure class="proof-thumb rv d2">
+        <img src="../assets/forma-plano-de-acao.webp" width="1320" height="897" alt="Plano de ação · exemplo ilustrativo" loading="lazy" decoding="async">
         <span class="chip chip--ghost">Exemplo ilustrativo</span>
-        <span class="tile"><svg class="ico ico--l"><use href="#i-list"/></svg></span>
-        <strong>Plano de ação</strong>
-      </div>
+      </figure>
     </div>
   </div>
 </section>
