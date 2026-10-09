@@ -43,7 +43,7 @@ Axon Acelerador de Negócios para consultores, instrutores e mentores, em `acele
 
 Pendências:
 
-- VSL: preencher `VSL_URL` no script do final da página (embed do YouTube/Vimeo) e inserir a duração final. Sem URL, o player aparece sem vídeo.
+- VSL: incorporada pelo player do Drive ("Joe Weider - Vídeo 1 LP.mp4", 569 MB). Para trocar por YouTube/Vimeo (com autoplay e sem a marca do Drive), altere `VSL_URL` no script do final da página. Falta inserir a duração final, se for exibida.
 - Formulário: preencher `FORM_ENDPOINT` com a URL que recebe o POST. Sem endpoint, o envio só leva à página de obrigado.
 - Logos autorizados na faixa "Experiência em organizações" (hoje são os nomes em texto) e bloco de cases e depoimentos (oculto até haver material aprovado).
 - WhatsApp: a copy pede "[Inserir WhatsApp validado]"; está usando (62) 99200-5555, o mesmo da `/acelerador`.
