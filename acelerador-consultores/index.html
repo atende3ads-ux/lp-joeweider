@@ -1422,6 +1422,53 @@
       .card-grid--5 .card:nth-child(5) { grid-column: auto; }
       .asset { padding: 24px 22px; }
     }
+
+    /* ════════ Referência de diagramação · hero estilo "Apogee" ════════ */
+    /* Cabeçalho: logo + pílula central + pílula de CTA, sobre a hero */
+    .site-head { position: fixed; top: 0; left: 0; right: 0; background: transparent; border-bottom: 1px solid transparent; backdrop-filter: none; -webkit-backdrop-filter: none; transition: background .3s, border-color .3s; }
+    .site-head.scrolled { background: rgba(7,4,9,.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom-color: var(--line); }
+    .head-row { height: auto; padding-top: 20px; padding-bottom: 16px; max-width: 1800px; padding-left: 20px; padding-right: 20px; }
+    .head-nav { height: 52px; padding: 0 24px; gap: 30px; background: rgba(10,7,7,.35); border-radius: 11px; backdrop-filter: blur(17px); -webkit-backdrop-filter: blur(17px); }
+    .head-nav a { padding: 0; font-size: 14px; font-weight: 450; line-height: 14px; color: rgba(255,255,255,.8); background: none; border-radius: 0; }
+    .head-nav a:hover { background: none; color: #fff; }
+    .head-pill { padding: 3px; background: rgba(0,0,0,.35); border-radius: 13px; backdrop-filter: blur(17px); -webkit-backdrop-filter: blur(17px); }
+    .head-cta.btn { height: 46px; padding: 0 24px; border-radius: 11px; font-size: 14px; font-weight: 450; background: #E9E9E9; color: #0A0707; box-shadow: none; }
+    .head-cta.btn:hover { background: #fff; transform: none; }
+    @media (min-width: 640px) { .head-row { padding-top: 30px; padding-left: 32px; padding-right: 32px; } }
+    @media (min-width: 768px) { .head-row { padding-left: 82px; padding-right: 82px; } }
+    .site-head.scrolled .head-row { padding-top: 14px; padding-bottom: 12px; }
+
+    /* Botões retangulares, sem seta */
+    .btn { height: 51px; padding: 0 27px; border-radius: 12px; font-size: 15.5px; font-weight: 450; letter-spacing: 0; justify-content: center; text-align: center; box-shadow: none; }
+    .btn .arr { display: none; }
+    .btn:hover { transform: none; }
+    .btn--light { background: #E9E9E9; color: #0A0707; box-shadow: none; }
+    .btn--light:hover { background: #fff; }
+    .btn--full { height: 54px; }
+    @media (max-width: 560px) { .btn { height: 46px; padding: 0 20px; font-size: 14px; } .btn--full { height: 50px; } }
+
+    /* Hero */
+    .hero > .wrap { max-width: 1800px; padding-left: 20px; padding-right: 20px; }
+    @media (min-width: 640px) { .hero > .wrap { padding-left: 32px; padding-right: 32px; } }
+    @media (min-width: 768px) { .hero > .wrap { padding-left: 82px; padding-right: 82px; } }
+    @media (min-width: 961px) { .hero { min-height: 100vh; padding: 130px 0 130px; } }
+    @media (max-width: 960px) { .hero { padding-top: 112px; } }
+    .hero-copy { max-width: 640px; }
+    .hero h1 { font-weight: 400; font-size: 36px; line-height: .95; letter-spacing: -.035em; margin-bottom: 20px; }
+    @media (min-width: 640px) { .hero h1 { font-size: 52px; margin-bottom: 32px; } }
+    @media (min-width: 768px) { .hero h1 { font-size: 64px; } }
+    @media (min-width: 1024px) { .hero h1 { font-size: 72px; } }
+    .hero-sub { font-size: 16px; font-weight: 450; line-height: 1.35; color: rgba(255,255,255,.8); max-width: 480px; margin-bottom: 28px; }
+    @media (min-width: 640px) { .hero-sub { font-size: 18px; margin-bottom: 40px; } }
+    @media (min-width: 768px) { .hero-sub { font-size: 20px; } }
+    .hero-actions { gap: 12px; }
+
+    /* Títulos de seção no mesmo estilo (leves, apertados, grandes) */
+    h2 { font-weight: 400; }
+    .sec-head h2, .author-info h2 { font-size: clamp(32px, 4.4vw, 56px); line-height: 1; letter-spacing: -.035em; }
+    .sec-head .lead { font-size: clamp(16px, 1.5vw, 19px); font-weight: 450; line-height: 1.45; color: rgba(255,255,255,.8); }
+    .market-head h3, .faq-sub { font-weight: 400; font-size: clamp(28px, 3.6vw, 44px); line-height: 1; letter-spacing: -.035em; }
+    .vsl-intro p { font-size: clamp(16px, 1.5vw, 19px); font-weight: 450; line-height: 1.45; color: rgba(255,255,255,.8); }
   </style>
 </head>
 <body>
@@ -1476,7 +1523,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 </svg>
 
 <!-- ── Cabeçalho ────────────────────────────── -->
-<header class="site-head">
+<header class="site-head" id="site-head">
   <div class="wrap head-row">
     <a class="head-logo" href="#" aria-label="Instituto Axon"><img src="../assets/logo-white.svg" width="102" height="51" alt="Instituto Axon"></a>
     <nav class="head-nav" aria-label="Seções da página">
@@ -1485,7 +1532,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       <a href="#joe">Joe Weider</a>
       <a href="#faq">Dúvidas</a>
     </nav>
-    <a href="#aplicacao" data-cta-location="header" class="btn head-cta"><span class="t">Quero conversar com o Axon</span><span class="arr"><svg class="ico ico--s"><use href="#i-arrow"/></svg></span></a>
+    <div class="head-pill"><a href="#aplicacao" data-cta-location="header" class="btn head-cta"><span class="t">Quero conversar com o Axon</span><span class="arr"><svg class="ico ico--s"><use href="#i-arrow"/></svg></span></a></div>
   </div>
 </header>
 
@@ -1530,7 +1577,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     </div>
     <div class="vsl-intro rv">
       <p>Ter conhecimento suficiente para ajudar empresas ou pessoas não significa, por si só, saber transformar essa experiência em algo que o mercado consiga entender e contratar. É comum dominar o próprio assunto e ainda ter dúvidas sobre nicho, oferta, preço, método, apresentação comercial ou prospecção.</p>
-      <p>Na VSL, Joe Weider apresenta como o Axon organiza essa construção e acompanha o profissional até a fase em que o negócio começa a ser colocado diante de potenciais clientes.</p>
+      <p>Veja como o Axon organiza essa construção e acompanha o profissional até a fase em que o negócio começa a ser colocado diante de potenciais clientes.</p>
     </div>
     <!-- Pendente: definir VSL_URL no script do final da página e inserir a duração final do vídeo. -->
     <div class="vsl rv d1" id="vsl-player" aria-label="Vídeo: como sua experiência pode virar um negócio">
@@ -1896,7 +1943,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 <script>
   /* ── Configuração ── */
   var FORM_ENDPOINT = '';            /* URL que recebe o POST do formulário (ex.: Formspree, Make, n8n). Vazio = protótipo, só leva à página de obrigado. */
-  var VSL_URL = 'https://drive.google.com/file/d/1aF71dq_W_jbziH5Afu7dX9IA0lVq8JMm/preview';                  /* URL de incorporação da VSL (ex.: https://www.youtube.com/embed/ID?autoplay=1&rel=0 ou https://player.vimeo.com/video/ID?autoplay=1). Vazio = player ainda sem vídeo. */
+  var VSL_URL = '';                  /* URL de incorporação da VSL (ex.: https://www.youtube.com/embed/ID?autoplay=1&rel=0 ou https://player.vimeo.com/video/ID?autoplay=1). Vazio = player ainda sem vídeo. */
   var WHATSAPP_NUMERO = '5562992005555';
   var WHATSAPP_MENSAGEM = 'Olá, equipe Axon! Tenho interesse no Axon Acelerador de Negócios e gostaria de conversar sobre o meu momento profissional.';
   var OBRIGADO_URL = 'obrigado/';
@@ -1906,6 +1953,13 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(Object.assign({ event: eventName, page_slug: PAGE_SLUG }, parameters || {}));
   }
+
+  /* Cabeçalho */
+  (function () {
+    var h = document.getElementById('site-head');
+    var on = function () { h.classList.toggle('scrolled', window.scrollY > 24); };
+    on(); window.addEventListener('scroll', on, { passive: true });
+  })();
 
   /* WhatsApp */
   (function () {
