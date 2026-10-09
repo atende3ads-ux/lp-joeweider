@@ -1451,7 +1451,7 @@
     .hero > .wrap { max-width: 1800px; padding-left: 20px; padding-right: 20px; }
     @media (min-width: 640px) { .hero > .wrap { padding-left: 32px; padding-right: 32px; } }
     @media (min-width: 768px) { .hero > .wrap { padding-left: 82px; padding-right: 82px; } }
-    @media (min-width: 961px) { .hero { min-height: 100vh; padding: 130px 0 130px; } }
+    @media (min-width: 961px) { .hero { min-height: 80vh; padding: 130px 0 130px; } }
     @media (max-width: 960px) { .hero { padding-top: 112px; } }
     .hero-copy { max-width: 640px; }
     .hero h1 { font-weight: 400; font-size: 36px; line-height: .95; letter-spacing: -.035em; margin-bottom: 20px; }
@@ -1474,6 +1474,12 @@
     .card, .card:hover { transition: none; transform: none; box-shadow: none; border-color: var(--line); }
     .card::after, .card:hover::after { display: none; }
     .card--warm:hover { border-color: var(--line); }
+
+    /* Recap sem container */
+    .recap { background: none; border: 0; padding: 0; margin-top: 48px; }
+    /* Hover só em elementos que chamam para ação */
+    .logo-marquee:hover .logo-track { animation-play-state: running; }
+    .proof-thumb:hover, .shift:hover, .step-card:hover { transform: none; border-color: var(--line); }
   </style>
 </head>
 <body>
@@ -1948,7 +1954,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 <script>
   /* ── Configuração ── */
   var FORM_ENDPOINT = '';            /* URL que recebe o POST do formulário (ex.: Formspree, Make, n8n). Vazio = protótipo, só leva à página de obrigado. */
-  var VSL_URL = '';                  /* URL de incorporação da VSL (ex.: https://www.youtube.com/embed/ID?autoplay=1&rel=0 ou https://player.vimeo.com/video/ID?autoplay=1). Vazio = player ainda sem vídeo. */
+  var VSL_URL = 'vsl.mp4';                  /* URL de incorporação da VSL (arquivo .mp4 hospedado, ex.: vsl.mp4, ou embed do YouTube/Vimeo). Vazio = player ainda sem vídeo. */
   var WHATSAPP_NUMERO = '5562992005555';
   var WHATSAPP_MENSAGEM = 'Olá, equipe Axon! Tenho interesse no Axon Acelerador de Negócios e gostaria de conversar sobre o meu momento profissional.';
   var OBRIGADO_URL = 'obrigado/';
@@ -2004,11 +2010,22 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     if (!VSL_URL) { box.classList.add('is-empty'); }
     btn.addEventListener('click', function () {
       if (!VSL_URL) return;
-      var f = document.createElement('iframe');
-      f.src = VSL_URL;
-      f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
-      f.allowFullscreen = true;
-      f.title = 'VSL · Axon Acelerador de Negócios';
+      var f;
+      if (/\.mp4($|\?)/.test(VSL_URL)) {
+        f = document.createElement('video');
+        f.src = VSL_URL;
+        f.poster = 'vsl-poster.jpg';
+        f.controls = true;
+        f.autoplay = true;
+        f.playsInline = true;
+        f.setAttribute('controlsList', 'nodownload');
+      } else {
+        f = document.createElement('iframe');
+        f.src = VSL_URL;
+        f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+        f.allowFullscreen = true;
+        f.title = 'VSL · Axon Acelerador de Negócios';
+      }
       box.appendChild(f);
       btn.style.display = 'none';
       pushDataLayer('vsl_play', {});
