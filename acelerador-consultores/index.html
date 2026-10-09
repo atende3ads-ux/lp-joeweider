@@ -1487,6 +1487,22 @@
     .org img { height: 34px; width: auto; max-width: 170px; object-fit: contain; opacity: .72; }
     .logo-marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
     @media (max-width: 560px) { .org { padding: 0 24px; } .org img { height: 28px; max-width: 130px; } }
+
+    /* Faixa de logos no pé da hero */
+    @media (min-width: 961px) {
+      .hero { min-height: 92vh; flex-direction: column; align-items: stretch; justify-content: center; padding: 130px 0 0; }
+      .hero > .wrap:not(.hero-orgs) { flex: 1; display: flex; align-items: center; }
+    }
+    .hero-orgs { position: relative; z-index: 2; padding-top: 0; padding-bottom: 64px; margin-top: 36px; }
+    .hero-orgs-label { text-align: center; font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin-bottom: 14px; display: flex; align-items: center; gap: 18px; }
+    .hero-orgs-label::before, .hero-orgs-label::after { content: ''; flex: 1; height: 1px; background: var(--line-2); }
+    @media (max-width: 960px) { .hero-orgs { padding-bottom: 0; margin-top: 28px; } }
+    @media (max-width: 960px) {
+      .hero { display: flex; flex-direction: column; }
+      .hero > .hero-orgs { flex: none; display: block; order: 3; margin-top: 24px; padding-bottom: 0; }
+      .hero > .hero-tools, .hero > .hero-tools.rv, .hero > .hero-tools.rv.in { order: 2; }
+      .hero-orgs-label { white-space: nowrap; }
+    }
   </style>
 </head>
 <body>
@@ -1576,6 +1592,13 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
           <a href="#aplicacao" data-cta-location="hero" class="btn btn--light">Quero conversar com o Axon<span class="arr"><svg class="ico ico--s"><use href="#i-arrow"/></svg></span></a>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="wrap hero-orgs rv d3">
+    <p class="hero-orgs-label">Experiência em organizações</p>
+    <div class="logo-marquee" role="list" aria-label="Organizações em que Joe Weider atuou">
+      <div class="logo-track"><span class="org"><img src="logos/banco-do-brasil.webp" alt="Banco do Brasil" height="34" decoding="async"></span><span class="org"><img src="logos/petrobras.webp" alt="Petrobras" height="34" decoding="async"></span><span class="org"><img src="logos/ambev.webp" alt="Ambev" height="34" decoding="async"></span><span class="org"><img src="logos/claro.webp" alt="Claro" height="34" decoding="async"></span><span class="org"><img src="logos/corteva.webp" alt="Corteva Agriscience" height="34" decoding="async"></span><span class="org"><img src="logos/dupont.webp" alt="DuPont" height="34" decoding="async"></span><span class="org"><img src="logos/dow.webp" alt="Dow Chemical" height="34" decoding="async"></span><span class="org"><img src="logos/pao-de-acucar.webp" alt="Grupo Pão de Açúcar" height="34" decoding="async"></span><span class="org"><img src="logos/siemens.webp" alt="Siemens" height="34" decoding="async"></span><span class="org"><img src="logos/italac.webp" alt="Italac" height="34" decoding="async"></span><span class="org"><img src="logos/saphyr.webp" alt="Saphyr Shopping Centers" height="34" decoding="async"></span><span class="org"><img src="logos/caixa.webp" alt="Caixa Econômica Federal" height="34" decoding="async"></span><span class="org"><img src="logos/rio-galeao.webp" alt="Rio Galeão" height="34" decoding="async"></span><span class="org"><img src="logos/anatel.webp" alt="ANATEL" height="34" decoding="async"></span><span class="org"><img src="logos/anac.webp" alt="ANAC" height="34" decoding="async"></span><span class="org"><img src="logos/tcu.webp" alt="TCU" height="34" decoding="async"></span><span class="org"><img src="logos/stf.webp" alt="STF" height="34" decoding="async"></span><span class="org"><img src="logos/mrs.webp" alt="MRS Logística" height="34" decoding="async"></span><span class="org"><img src="logos/banco-do-brasil.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/petrobras.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/ambev.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/claro.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/corteva.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/dupont.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/dow.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/pao-de-acucar.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/siemens.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/italac.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/saphyr.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/caixa.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/rio-galeao.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/anatel.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/anac.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/tcu.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/stf.webp" alt="" height="34" decoding="async"></span><span class="org"><img src="logos/mrs.webp" alt="" height="34" decoding="async"></span></div>
     </div>
   </div>
 
