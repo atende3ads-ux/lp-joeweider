@@ -34,6 +34,21 @@ Pendências:
 - FAQ: "Os encontros são online ou presenciais?" e "Qual é a frequência dos encontros?" estão comentadas até confirmação comercial.
 - Rodapé: link da Política de Privacidade, razão social, CNPJ e e-mail institucional.
 
+## LP /acelerador-consultores
+
+Axon Acelerador de Negócios para consultores, instrutores e mentores, em `acelerador-consultores/index.html`, com a página de obrigado em `acelerador-consultores/obrigado/`. Copy do Google Doc "LP | Axon acelerador de negócios" (tarefa [JOE WEIDER] AXON ACELERADOR, 3ADS Flow). Mesmo design system da `/acelerador`; formulário multi-step em 3 passos que termina na página de obrigado com botão para o WhatsApp.
+
+- GitHub Pages: `https://atende3ads-ux.github.io/lp-joeweider/acelerador-consultores/`
+- Rastreamento: GTM e Clarity da LP principal; eventos `cta_form_click`, `form_step_view`, `lead_form_submit`, `vsl_play`, `whatsapp_click` e `faq_toggle` com `page_slug: acelerador-consultores` (`obrigado_view` na página de obrigado).
+
+Pendências:
+
+- VSL: preencher `VSL_URL` no script do final da página (embed do YouTube/Vimeo) e inserir a duração final. Sem URL, o player aparece sem vídeo.
+- Formulário: preencher `FORM_ENDPOINT` com a URL que recebe o POST. Sem endpoint, o envio só leva à página de obrigado.
+- Logos autorizados na faixa "Experiência em organizações" (hoje são os nomes em texto) e bloco de cases e depoimentos (oculto até haver material aprovado).
+- WhatsApp: a copy pede "[Inserir WhatsApp validado]"; está usando (62) 99200-5555, o mesmo da `/acelerador`.
+- Rodapé: razão social, CNPJ, e-mail, telefone, Política de Privacidade e Termos marcados como [CONFIRMAR] na copy.
+
 ## Publicação no cPanel
 
 1. Abra o Gerenciador de Arquivos do cPanel.
