@@ -1469,6 +1469,11 @@
     .sec-head .lead { font-size: clamp(16px, 1.5vw, 19px); font-weight: 450; line-height: 1.45; color: rgba(255,255,255,.8); }
     .market-head h3, .faq-sub { font-weight: 400; font-size: clamp(28px, 3.6vw, 44px); line-height: 1; letter-spacing: -.035em; }
     .vsl-intro p { font-size: clamp(16px, 1.5vw, 19px); font-weight: 450; line-height: 1.45; color: rgba(255,255,255,.8); }
+
+    /* Cards sem efeito de hover */
+    .card, .card:hover { transition: none; transform: none; box-shadow: none; border-color: var(--line); }
+    .card::after, .card:hover::after { display: none; }
+    .card--warm:hover { border-color: var(--line); }
   </style>
 </head>
 <body>
