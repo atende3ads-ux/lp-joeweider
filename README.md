@@ -36,7 +36,7 @@ Pendências:
 
 ## LP /acelerador-consultores
 
-Axon Acelerador de Negócios para consultores, instrutores e mentores, em `acelerador-consultores/index.html`, com a página de obrigado em `acelerador-consultores/obrigado/`. Copy do Google Doc "LP | Axon acelerador de negócios" (tarefa [JOE WEIDER] AXON ACELERADOR, 3ADS Flow). Mesmo design system da `/acelerador`; formulário multi-step em 3 passos que termina na página de obrigado com botão para o WhatsApp.
+Axon Acelerador de Negócios para consultores, instrutores e mentores, em `acelerador-consultores/index.html`, com a página de obrigado em `acelerador-consultores/obrigado/`. Copy do Google Doc "LP | Axon acelerador de negócios" (tarefa [JOE WEIDER] AXON ACELERADOR, 3ADS Flow). Direção visual do briefing (verde tecnológico: base off-white/branco, seções estratégicas em verde escuro `#071A14`, verde `#18C982` em CTAs, indicadores, linhas e ícones; títulos em Inter Tight de peso alto e números em Barlow Condensed). Formulário multi-step em 3 passos que termina na página de obrigado com botão para o WhatsApp.
 
 - GitHub Pages: `https://atende3ads-ux.github.io/lp-joeweider/acelerador-consultores/`
 - Rastreamento: GTM e Clarity da LP principal; eventos `cta_form_click`, `form_step_view`, `lead_form_submit`, `vsl_play`, `whatsapp_click` e `faq_toggle` com `page_slug: acelerador-consultores` (`obrigado_view` na página de obrigado).
