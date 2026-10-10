@@ -38,8 +38,9 @@ Pendências:
 
 Axon Acelerador de Negócios para consultores, instrutores e mentores, em `acelerador-consultores/index.html`, com a página de obrigado em `acelerador-consultores/obrigado/`. Copy do Google Doc "LP | Axon acelerador de negócios" (tarefa [JOE WEIDER] AXON ACELERADOR, 3ADS Flow). Direção visual do briefing (verde tecnológico: base off-white/branco, seções estratégicas em verde escuro `#071A14`, verde `#18C982` em CTAs, indicadores, linhas e ícones; títulos em Inter Tight de peso alto e números em Barlow Condensed). Formulário multi-step em 3 passos que termina na página de obrigado com botão para o WhatsApp.
 
+- Mobile (≤ 960px) segue o "BRIEFING LP > MOBILE" como experiência própria: hero na ordem eyebrow → título → subtítulo → VSL → CTA → microprovas 2×2, só o logo no topo, CTA fixo no rodapé da tela (some no formulário e com o teclado aberto), 8 ativos em accordion, recap em lista, linha do tempo vertical, autoridade com foto → números → bio, FAQ com uma pergunta aberta por vez, campos em 16px e máscara de WhatsApp. A foto grande da hero não é baixada no celular. O bloco de texto da Seção 02 (VSL) fica oculto no mobile, porque o vídeo sobe para a hero.
 - GitHub Pages: `https://atende3ads-ux.github.io/lp-joeweider/acelerador-consultores/`
-- Rastreamento: GTM e Clarity da LP principal; eventos `cta_form_click`, `form_step_view`, `lead_form_submit`, `vsl_play`, `whatsapp_click` e `faq_toggle` com `page_slug: acelerador-consultores` (`obrigado_view` na página de obrigado).
+- Rastreamento: GTM e Clarity da LP principal; eventos `cta_form_click` (inclui `cta_location: sticky`), `form_start`, `form_step_view`, `form_step_complete`, `lead_form_submit`, `vsl_play`, `vsl_progress` (25/50/75/90), `whatsapp_click` e `faq_toggle` com `page_slug: acelerador-consultores` (`obrigado_view` na página de obrigado).
 
 Pendências:
 
