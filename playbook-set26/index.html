@@ -1301,6 +1301,99 @@
       .stat { padding: 12px 16px 12px 14px; }
       .stat .val { font-size: 34px; }
     }
+
+    /* ════════ Mobile otimizado (≤ 720px) ════════
+       CTA na primeira tela, blocos mais curtos, áreas de toque maiores e CTA fixo */
+    .sticky-cta { display: none; }
+    @media (max-width: 720px) {
+      section { padding: 52px 0; }
+      .wrap, .narrow { padding-left: 20px; padding-right: 20px; }
+      .sec-head { margin-bottom: 28px; }
+      .sec-head .chip { margin-bottom: 14px; }
+      .sec-head h2 { font-size: clamp(27px, 7.4vw, 36px); line-height: 1.1; }
+      .sec-head .lead { font-size: 15.5px; line-height: 1.55; margin-top: 14px; }
+      .cta-wrap { margin-top: 28px; }
+      .cta-wrap .btn, .hero-cta .btn { width: 100%; justify-content: space-between; min-height: 56px; }
+
+      /* Topo: só a faixa com o botão vira redundante com o CTA fixo */
+      .topbar { display: none; }
+
+      /* Hero: logo → título → subtítulo → CTA → foto → microprovas */
+      .hero { display: flex; flex-direction: column; align-items: stretch; min-height: 0; padding: 28px 0 0; }
+      .hero > .wrap { flex: none; display: block; order: 1; }
+      .hero-copy { display: block; flex: none; }
+      .hero-eyebrow { margin-bottom: 18px; gap: 12px; }
+      .hero-logo { height: 34px; }
+      .hero h1 { font-size: clamp(31px, 8.8vw, 42px); line-height: 1.04; margin-bottom: 14px; }
+      .hero-sub { font-size: 16px; line-height: 1.5; margin-bottom: 20px; }
+      .hero-cta { margin-top: 0; padding-top: 0; }
+      .hero-access { margin-top: 14px; }
+      .hero-clip { position: relative; inset: auto; order: 2; width: 100%; height: min(82vw, 420px); margin-top: 4px; }
+      .hero-bg img { object-position: center 78%; }
+      .hero-clip::before { background: linear-gradient(180deg, var(--dark) 0%, rgba(0,12,23,.35) 26%, rgba(0,12,23,0) 50%, rgba(0,12,23,.2) 78%, var(--dark) 100%); }
+      .hero-clip::after, .hero-orb { display: none; }
+      .hero > .hero-tools, .hero > .hero-tools.rv, .hero > .hero-tools.rv.in {
+        order: 3; position: relative; left: auto; bottom: auto; transform: none;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+        margin: -34px 20px 0; padding: 8px; white-space: normal; border-radius: 14px;
+      }
+      .tool { padding: 10px; font-size: 13px; justify-content: flex-start; }
+      .tool + .tool::before { display: none; }
+      .experiencia { padding-top: 52px; }
+
+      /* Números lado a lado */
+      .exp-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .exp-card { min-height: 0; padding: 18px 16px 16px; border-radius: 16px; }
+      .exp-card .giant { font-size: 56px; margin-bottom: 4px; }
+      .exp-card .unit { font-size: 17px; }
+      .exp-card .lbl { font-size: 10.5px; margin-top: 4px; }
+      .exp-card--trio { grid-column: 1 / -1; }
+      .exp-card--trio .trio { margin-bottom: 12px; }
+      .exp-card--trio .val { font-size: 19px; }
+      .exp-note { font-size: 15px; line-height: 1.6; margin-top: 22px; }
+
+      /* Cards de dor e de entrega: ícone à esquerda, texto curto */
+      .pain-grid, .feat-grid { grid-template-columns: 1fr; gap: 10px; }
+      .pain-card, .feat-card { display: grid; grid-template-columns: 44px 1fr; gap: 0 14px; align-items: start; padding: 18px 16px; border-radius: 14px; }
+      .pain-card .pain-top { display: block; margin: 0; grid-row: span 2; }
+      .pain-idx { display: none; }
+      .pain-card .tile, .feat-card .tile { width: 44px; height: 44px; border-radius: 12px; margin: 0; }
+      .feat-card .tile { grid-row: span 2; }
+      .pain-card h3, .feat-card h3 { font-size: 16.5px; line-height: 1.3; margin: 1px 0 5px; }
+      .pain-card p, .feat-card p { font-size: 14.5px; line-height: 1.5; grid-column: 2; }
+      .pain-card:hover, .feat-card:hover, .step-card:hover { transform: none; }
+
+      /* Os três movimentos: a palavra vira rótulo do card */
+      .steps { gap: 12px; }
+      .step-row, .step-row.flip { gap: 0; }
+      .step-big { min-height: 0; padding: 14px 18px 12px; align-items: flex-start; justify-content: flex-start; border-radius: 14px 14px 0 0; border-bottom: 0; box-shadow: none; }
+      .step-big::after { display: none; }
+      .step-big .giant { font-size: 40px; line-height: 1; }
+      .step-card { padding: 18px 18px 20px; border-radius: 0 0 14px 14px; }
+      .step-card .tile { display: none; }
+      .step-card h3 { font-size: 17.5px; line-height: 1.3; margin-bottom: 8px; }
+      .step-card p { font-size: 14.5px; line-height: 1.55; }
+
+      /* Blocos de lista */
+      .fw-card, .ba-card { padding: 22px 18px; border-radius: 16px; }
+      .author-avatar { max-width: none; aspect-ratio: 4 / 3.4; }
+      .author-avatar img { object-position: center 18%; }
+      .price-card { padding: 24px 18px; }
+      .price-card .btn { width: 100%; min-height: 58px; font-size: 16px; }
+      .faq-item summary { min-height: 60px; }
+
+      /* CTA fixo após a hero; some quando a oferta está na tela */
+      footer { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+      .sticky-cta {
+        display: block; position: fixed; z-index: 30; left: 0; right: 0; bottom: 0;
+        padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(0,12,23,.96); border-top: 1px solid rgba(255,255,255,.12);
+        transform: translateY(110%); transition: transform .3s cubic-bezier(.2,.6,.2,1);
+      }
+      .sticky-cta.on { transform: none; }
+      .sticky-cta .btn { width: 100%; min-height: 52px; font-size: 15px; justify-content: space-between; padding-left: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .sticky-cta { transition: none; } }
   </style>
 </head>
 <body>
@@ -1890,6 +1983,13 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
   </div>
 </footer>
 
+<!-- CTA fixo (mobile) -->
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <a href="#oferta-playbook" data-cta-location="sticky" class="btn btn--light" tabindex="-1">Quero dar o próximo passo na minha carreira
+    <span class="arr"><svg class="ico ico--s"><use href="#i-arrow"/></svg></span>
+  </a>
+</div>
+
 <script>
   /* WhatsApp · preencher o número quando chegar (só dígitos, com DDI e DDD. Ex.: 5511999999999).
      Sem número, o botão "Falar sobre o Playbook" leva ao FAQ. */
@@ -2090,6 +2190,25 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
       document.head.appendChild(link);
     }
+  })();
+</script>
+
+<script>
+  /* CTA fixo (mobile): aparece depois da hero e some enquanto a oferta está na tela */
+  (function () {
+    var bar = document.getElementById('sticky-cta');
+    var hero = document.querySelector('.hero');
+    var offer = document.getElementById('oferta-playbook');
+    if (!bar || !hero || !offer || !('IntersectionObserver' in window)) return;
+    var pastHero = false, inOffer = false;
+    var update = function () {
+      var on = pastHero && !inOffer;
+      bar.classList.toggle('on', on);
+      bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+      bar.querySelector('a').tabIndex = on ? 0 : -1;
+    };
+    new IntersectionObserver(function (e) { pastHero = !e[0].isIntersecting; update(); }).observe(hero);
+    new IntersectionObserver(function (e) { inOffer = e[0].isIntersecting; update(); }).observe(offer);
   })();
 </script>
 
