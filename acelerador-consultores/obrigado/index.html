@@ -1637,7 +1637,7 @@
 
     /* Hero desktop: foto como fundo em CSS, para não baixar no celular */
     @media (min-width: 961px) {
-      .hero-bg { background: url(../assets/hero-desktop.jpg) 72% 30% / cover no-repeat; filter: grayscale(.7) contrast(1.04); }
+      .hero-bg { background: url(../../assets/hero-desktop.jpg) 72% 30% / cover no-repeat; filter: grayscale(.7) contrast(1.04); }
     }
 
     /* Recap: em linha no desktop, lista vertical no mobile */
@@ -1841,11 +1841,11 @@
   var WHATSAPP_NUMERO = '5562992005555';
   var WHATSAPP_MENSAGEM = 'Olá! Acabei de enviar minha aplicação para o Axon Acelerador de Negócios e gostaria de conversar sobre o meu momento profissional.';
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: 'obrigado_view', page_slug: 'acelerador-consultores' });
+  window.dataLayer.push({ event: 'obrigado_view', page_slug: 'acelerador' });
   var wa = document.getElementById('wa');
   wa.href = 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(WHATSAPP_MENSAGEM);
   wa.target = '_blank'; wa.rel = 'noopener';
-  wa.addEventListener('click', function () { window.dataLayer.push({ event: 'whatsapp_click', page_slug: 'acelerador-consultores', cta_location: 'obrigado' }); });
+  wa.addEventListener('click', function () { window.dataLayer.push({ event: 'whatsapp_click', page_slug: 'acelerador', cta_location: 'obrigado' }); });
 </script>
 </body>
 </html>

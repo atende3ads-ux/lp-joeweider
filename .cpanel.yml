@@ -1,7 +1,14 @@
 ---
 deployment:
   tasks:
+    - export SITEPATH=/home2/hg3ads37/produto.joeweider.com.br/
     - export DEPLOYPATH=/home2/hg3ads37/produto.joeweider.com.br/playbook-treinamento-corporativo/
+    - export ACCELERATORPATH=/home2/hg3ads37/produto.joeweider.com.br/acelerador/
     - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -f index.html $DEPLOYPATH
     - /bin/cp -Rf assets $DEPLOYPATH
+    - /bin/mkdir -p $SITEPATH/assets
+    - /bin/cp -Rf assets/. $SITEPATH/assets/
+    - /bin/mkdir -p $ACCELERATORPATH
+    - /bin/cp -Rf acelerador-consultores/. $ACCELERATORPATH/
+    - /bin/cp -f .htaccess robots.txt sitemap.xml $SITEPATH
