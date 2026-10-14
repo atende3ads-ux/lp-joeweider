@@ -2356,6 +2356,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
   var WHATSAPP_MENSAGEM = 'Olá, equipe Axon! Tenho interesse no Axon Acelerador de Negócios e gostaria de conversar sobre o meu momento profissional.';
   var OBRIGADO_URL = 'obrigado/';
   var PAGE_SLUG = 'acelerador';
+  var RESPOSTAS_STORAGE_KEY = 'axon_acelerador_respostas';
 
   function pushDataLayer(eventName, parameters) {
     window.dataLayer = window.dataLayer || [];
@@ -2489,12 +2490,18 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       if (!valid(steps[current])) return;
       var data = new FormData(form);
       var done = function () {
-        pushDataLayer('lead_form_submit', {
+        var respostas = {
           momento: data.get('momento') || '',
           objetivo: data.get('objetivo') || '',
           ja_vende: data.get('ja_vende') || '',
           desafio: data.get('desafio') || ''
-        });
+        };
+        try {
+          window.sessionStorage.setItem(RESPOSTAS_STORAGE_KEY, JSON.stringify(respostas));
+        } catch (storageError) {
+          /* Mantém o redirecionamento mesmo quando o navegador bloqueia o sessionStorage. */
+        }
+        pushDataLayer('lead_form_submit', respostas);
         window.setTimeout(function () { window.location.href = OBRIGADO_URL; }, 350);
       };
       var btn = form.querySelector('button[type="submit"]');
