@@ -46,7 +46,7 @@ Axon Acelerador de Negócios para consultores, instrutores e mentores, mantida e
 Pendências:
 
 - VSL: arquivo `acelerador-consultores/vsl.mp4` (1080p, 78 MB, comprimido do original de 569 MB do Drive) tocado pelo player nativo. Para produção, o ideal é um player dedicado (Vimeo, YouTube não listado, Bunny ou Cloudflare Stream): basta trocar `VSL_URL` por uma URL de embed. Falta inserir a duração (4min54), se for exibida.
-- Formulário: preencher `FORM_ENDPOINT` com a URL que recebe o POST. Sem endpoint, o envio só leva à página de obrigado.
+- Formulário: envia nome, WhatsApp, e-mail, respostas e as UTMs `utm_source`, `utm_medium`, `utm_campaign`, `utm_content` e `utm_term` ao Google Apps Script configurado em `FORM_ENDPOINT`; após a confirmação do endpoint, segue para a página de obrigado.
 - Logos da faixa "Experiência em organizações": versões monocromáticas (brancas) em `acelerador-consultores/logos/`, geradas a partir dos arquivos do Wikimedia Commons. Falta confirmar a autorização de uso das marcas com o cliente. Bloco de cases e depoimentos segue oculto até haver material aprovado.
 - WhatsApp: a copy pede "[Inserir WhatsApp validado]"; está usando (62) 99200-5555, o mesmo da `/acelerador`.
 - Rodapé: razão social, CNPJ, e-mail, telefone, Política de Privacidade e Termos marcados como [CONFIRMAR] na copy.

@@ -2251,7 +2251,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     <p class="apply-lead rv">Conte um pouco sobre o seu momento profissional. As respostas ajudam o time Axon a entender em que estágio você está e se o programa faz sentido para o que pretende construir.</p>
 
     <div class="form-card rv d1" id="aplicacao">
-      <!-- O envio é definido por FORM_ENDPOINT no script do final da página. Sem endpoint, o protótipo só leva à página de obrigado. -->
+      <!-- O envio é feito ao Google Apps Script definido por FORM_ENDPOINT no script do final da página. -->
       <form id="lead-form" novalidate>
         <div class="steps-bar" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
 
@@ -2350,7 +2350,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 
 <script>
   /* ── Configuração ── */
-  var FORM_ENDPOINT = '';            /* URL que recebe o POST do formulário (ex.: Formspree, Make, n8n). Vazio = protótipo, só leva à página de obrigado. */
+  var FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzwV0-R3zEvhqCzlycrhasmbX-dH5V4Wask8xtqPrIqiJgI16TH1xk-J4fDZs9BQV3b/exec';
   var VSL_URL = 'vsl.mp4';                  /* URL de incorporação da VSL (arquivo .mp4 hospedado, ex.: vsl.mp4, ou embed do YouTube/Vimeo). Vazio = player ainda sem vídeo. */
   var WHATSAPP_NUMERO = '5562992005555';
   var WHATSAPP_MENSAGEM = 'Olá, equipe Axon! Tenho interesse no Axon Acelerador de Negócios e gostaria de conversar sobre o meu momento profissional.';
@@ -2489,6 +2489,10 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       event.preventDefault();
       if (!valid(steps[current])) return;
       var data = new FormData(form);
+      var params = new URLSearchParams(window.location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (key) {
+        data.append(key, params.get(key) || '');
+      });
       var done = function () {
         var respostas = {
           momento: data.get('momento') || '',
