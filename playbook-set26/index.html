@@ -1885,8 +1885,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 
     <div class="help-strip rv">
       <h3><span class="tile"><svg class="ico"><use href="#i-help"/></svg></span>Tem uma dúvida antes de comprar?</h3>
-      <!-- O href é preenchido pelo WHATSAPP_NUMERO no script do final da página (sem número, leva ao FAQ) -->
-      <a href="#faq" class="btn btn--outline" data-whatsapp>Falar sobre o Playbook
+      <a href="https://spar.3ads.com.br/l/fernanda-comercial-zyfy" class="btn btn--outline" data-whatsapp>Falar sobre o Playbook
         <span class="arr"><svg class="ico ico--s"><use href="#i-whatsapp"/></svg></span>
       </a>
     </div>
@@ -1991,15 +1990,11 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 </div>
 
 <script>
-  /* WhatsApp · preencher o número quando chegar (só dígitos, com DDI e DDD. Ex.: 5511999999999).
-     Sem número, o botão "Falar sobre o Playbook" leva ao FAQ. */
-  var WHATSAPP_NUMERO = '';
-  var WHATSAPP_MENSAGEM = 'Oi! Vim pela página do Playbook Treinamento Corporativo do Joe Weider. Quero entender como ele me ajuda a virar referência e viver de treinamento corporativo antes de garantir meu acesso.';
+  var CONTATO_URL = 'https://spar.3ads.com.br/l/fernanda-comercial-zyfy';
 
   (function () {
-    if (!WHATSAPP_NUMERO) return;
     document.querySelectorAll('[data-whatsapp]').forEach(function (a) {
-      a.href = 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(WHATSAPP_MENSAGEM);
+      a.href = CONTATO_URL;
       a.target = '_blank';
       a.rel = 'noopener';
     });

@@ -2324,7 +2324,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       </div>
       <div class="footer-col">
         <h4>Telefone / WhatsApp</h4>
-        <a href="#" data-whatsapp data-cta-location="footer"><svg class="ico"><use href="#i-phone"/></svg>(62) 99200-5555</a>
+        <a href="https://spar.3ads.com.br/l/fernanda-comercial-zyfy" data-whatsapp data-cta-location="footer"><svg class="ico"><use href="#i-phone"/></svg>Falar com Fernanda</a>
       </div>
       <div class="footer-col">
         <h4>Instagram</h4>
@@ -2352,8 +2352,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
   /* ── Configuração ── */
   var FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzwV0-R3zEvhqCzlycrhasmbX-dH5V4Wask8xtqPrIqiJgI16TH1xk-J4fDZs9BQV3b/exec';
   var VSL_URL = 'vsl.mp4';                  /* URL de incorporação da VSL (arquivo .mp4 hospedado, ex.: vsl.mp4, ou embed do YouTube/Vimeo). Vazio = player ainda sem vídeo. */
-  var WHATSAPP_NUMERO = '5562992005555';
-  var WHATSAPP_MENSAGEM = 'Olá, equipe Axon! Tenho interesse no Axon Acelerador de Negócios e gostaria de conversar sobre o meu momento profissional.';
+  var CONTATO_URL = 'https://spar.3ads.com.br/l/fernanda-comercial-zyfy';
   var OBRIGADO_URL = 'obrigado/';
   var PAGE_SLUG = 'acelerador';
   var RESPOSTAS_STORAGE_KEY = 'axon_acelerador_respostas';
@@ -2372,9 +2371,8 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 
   /* WhatsApp */
   (function () {
-    var href = 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(WHATSAPP_MENSAGEM);
     document.querySelectorAll('[data-whatsapp]').forEach(function (a) {
-      a.href = href;
+      a.href = CONTATO_URL;
       a.target = '_blank';
       a.rel = 'noopener';
       a.addEventListener('click', function () {

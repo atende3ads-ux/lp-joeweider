@@ -1584,7 +1584,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         <h2>Experiência de campo para orientar <span class="em">decisões e implementação</span></h2>
         <p>Joe Weider é fundador do Instituto Axon, consultor, mentor e palestrante. É Mestre em Administração e especialista em Neurociência aplicada à gestão corporativa, com atuação em estratégia, processos, desenvolvimento de líderes e gestão empresarial. Sua trajetória reúne <strong>mais de 200 empresas atendidas</strong>.</p>
         <p>No Instituto Axon, essa experiência é organizada em métodos, ferramentas e acompanhamento voltados à realidade das empresas. O Axon Acelerador de Negócios reúne essa abordagem em um programa de 12 meses.</p>
-        <a href="#" class="btn btn--outline" data-whatsapp data-cta-location="joe">Falar com a equipe Axon
+        <a href="https://spar.3ads.com.br/l/fernanda-comercial-zyfy" class="btn btn--outline" data-whatsapp data-cta-location="joe">Falar com a equipe Axon
           <span class="arr"><svg class="ico ico--s"><use href="#i-whatsapp"/></svg></span>
         </a>
       </div>
@@ -1798,9 +1798,9 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       <div class="help-txt">
         <h3><span class="tile"><svg class="ico"><use href="#i-chat"/></svg></span>Prefere falar com a equipe?</h3>
         <p><strong style="color:var(--ink);font-weight:600">Tire suas dúvidas antes de solicitar o diagnóstico.</strong> Se quiser entender melhor o programa antes de preencher o formulário, fale diretamente com a equipe Axon.</p>
-        <span class="num"><svg class="ico"><use href="#i-whatsapp"/></svg>WhatsApp: (62) 99200-5555</span>
+        <span class="num"><svg class="ico"><use href="#i-whatsapp"/></svg>Atendimento comercial com Fernanda</span>
       </div>
-      <a href="#" class="btn btn--outline" data-whatsapp data-cta-location="contato">Falar com a equipe Axon
+      <a href="https://spar.3ads.com.br/l/fernanda-comercial-zyfy" class="btn btn--outline" data-whatsapp data-cta-location="contato">Falar com a equipe Axon
         <span class="arr"><svg class="ico ico--s"><use href="#i-whatsapp"/></svg></span>
       </a>
     </div>
@@ -1817,7 +1817,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       </div>
       <div class="footer-col">
         <h4>Telefone / WhatsApp</h4>
-        <a href="#" data-whatsapp data-cta-location="footer"><svg class="ico"><use href="#i-phone"/></svg>(62) 99200-5555</a>
+        <a href="https://spar.3ads.com.br/l/fernanda-comercial-zyfy" data-whatsapp data-cta-location="footer"><svg class="ico"><use href="#i-phone"/></svg>Falar com Fernanda</a>
       </div>
       <div class="footer-col">
         <h4>Instagram</h4>
@@ -1839,8 +1839,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 <script>
   /* ── Configuração ── */
   var FORM_ENDPOINT = '';            /* URL que recebe o POST do formulário (ex.: Formspree, Make, n8n). Vazio = protótipo, só mostra a confirmação. */
-  var WHATSAPP_NUMERO = '5562992005555';
-  var WHATSAPP_MENSAGEM = 'Olá, equipe Axon! Tenho interesse no Axon Acelerador de Negócios e gostaria de entender como funciona o acompanhamento de 12 meses.';
+  var CONTATO_URL = 'https://spar.3ads.com.br/l/fernanda-comercial-zyfy';
   var PAGE_SLUG = 'acelerador';
 
   function pushDataLayer(eventName, parameters) {
@@ -1850,9 +1849,8 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 
   /* WhatsApp */
   (function () {
-    var href = 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(WHATSAPP_MENSAGEM);
     document.querySelectorAll('[data-whatsapp]').forEach(function (a) {
-      a.href = href;
+      a.href = CONTATO_URL;
       a.target = '_blank';
       a.rel = 'noopener';
       a.addEventListener('click', function () {

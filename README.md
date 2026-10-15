@@ -15,7 +15,7 @@ Nova versão da página com a copy de setembro/2026, em `playbook-set26/index.ht
 
 Pendências:
 
-- Preencher `WHATSAPP_NUMERO` no script do final da página. Sem número, o botão "Falar sobre o Playbook" leva ao FAQ.
+- O botão "Falar sobre o Playbook" usa o link de contato Spar da Fernanda.
 - Garantia: o bloco da oferta e a pergunta "E se eu comprar e não gostar?" estão comentados no HTML até a validação com cliente/Hotmart.
 - Rodapé: CNPJ, e-mail de suporte, telefone, WhatsApp e link de "Termos de Compra".
 
@@ -25,7 +25,7 @@ Página do Axon Acelerador de Negócios, em `acelerador/index.html`. Mesma diagr
 
 - GitHub Pages: `https://atende3ads-ux.github.io/lp-joeweider/acelerador/`
 - Rastreamento: GTM e Clarity da LP principal; eventos `cta_form_click`, `lead_form_submit`, `whatsapp_click` e `faq_toggle` com `page_slug: acelerador`.
-- WhatsApp (62) 99200-5555 com a mensagem da copy já preenchida.
+- Botões de contato usam o link Spar da Fernanda.
 
 Pendências:
 
@@ -48,7 +48,7 @@ Pendências:
 - VSL: arquivo `acelerador-consultores/vsl.mp4` (1080p, 78 MB, comprimido do original de 569 MB do Drive) tocado pelo player nativo. Para produção, o ideal é um player dedicado (Vimeo, YouTube não listado, Bunny ou Cloudflare Stream): basta trocar `VSL_URL` por uma URL de embed. Falta inserir a duração (4min54), se for exibida.
 - Formulário: envia nome, WhatsApp, e-mail, respostas e as UTMs `utm_source`, `utm_medium`, `utm_campaign`, `utm_content` e `utm_term` ao Google Apps Script configurado em `FORM_ENDPOINT`; após a confirmação do endpoint, segue para a página de obrigado.
 - Logos da faixa "Experiência em organizações": versões monocromáticas (brancas) em `acelerador-consultores/logos/`, geradas a partir dos arquivos do Wikimedia Commons. Falta confirmar a autorização de uso das marcas com o cliente. Bloco de cases e depoimentos segue oculto até haver material aprovado.
-- WhatsApp: a copy pede "[Inserir WhatsApp validado]"; está usando (62) 99200-5555, o mesmo da `/acelerador`.
+- WhatsApp: os CTAs gerais usam o link Spar da Fernanda. Na página de obrigado, o link direto para o mesmo destino é mantido quando existem respostas do formulário, pois o Spar não aceita substituir dinamicamente a mensagem; assim as respostas continuam preenchidas no WhatsApp.
 - Rodapé: razão social, CNPJ, e-mail, telefone, Política de Privacidade e Termos marcados como [CONFIRMAR] na copy.
 
 ## Publicação no cPanel

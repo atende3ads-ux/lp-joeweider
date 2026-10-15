@@ -1832,19 +1832,22 @@
       <span class="tile"><svg class="ico ico--l"><use href="#i-check"/></svg></span>
       <h1>Recebemos <span class="em">sua aplicação</span></h1>
       <p>O próximo passo é continuar a conversa com o time Axon pelo WhatsApp.</p>
-      <a href="#" id="wa" class="btn">Continuar no WhatsApp<span class="arr"><svg class="ico ico--s"><use href="#i-whatsapp"/></svg></span></a>
+      <a href="https://spar.3ads.com.br/l/fernanda-comercial-zyfy" id="wa" class="btn">Continuar no WhatsApp<span class="arr"><svg class="ico ico--s"><use href="#i-whatsapp"/></svg></span></a>
       <div class="msg"><span class="k">Mensagem sugerida</span><q id="wa-message-preview">Olá! Acabei de enviar minha aplicação para o Axon Acelerador de Negócios e gostaria de conversar sobre o meu momento profissional.</q></div>
     </div>
   </div>
 </main>
 <script>
-  var WHATSAPP_NUMERO = '5562992005555';
+  var CONTATO_URL = 'https://spar.3ads.com.br/l/fernanda-comercial-zyfy';
+  var WHATSAPP_NUMERO = '556292005555';
   var RESPOSTAS_STORAGE_KEY = 'axon_acelerador_respostas';
   var WHATSAPP_MENSAGEM_BASE = 'Olá! Acabei de enviar minha aplicação para o Axon Acelerador de Negócios e gostaria de conversar sobre o meu momento profissional.';
   var WHATSAPP_MENSAGEM = WHATSAPP_MENSAGEM_BASE;
+  var TEM_RESPOSTAS = false;
   try {
     var respostas = JSON.parse(window.sessionStorage.getItem(RESPOSTAS_STORAGE_KEY) || 'null');
     if (respostas && respostas.momento && respostas.objetivo && respostas.ja_vende && respostas.desafio) {
+      TEM_RESPOSTAS = true;
       WHATSAPP_MENSAGEM = [
         'Olá! Acabei de enviar minha aplicação para o Axon Acelerador de Negócios.',
         '',
@@ -1864,7 +1867,9 @@
   var preview = document.getElementById('wa-message-preview');
   preview.textContent = WHATSAPP_MENSAGEM;
   var wa = document.getElementById('wa');
-  wa.href = 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(WHATSAPP_MENSAGEM);
+  wa.href = TEM_RESPOSTAS
+    ? 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(WHATSAPP_MENSAGEM)
+    : CONTATO_URL;
   wa.target = '_blank'; wa.rel = 'noopener';
   wa.addEventListener('click', function () { window.dataLayer.push({ event: 'whatsapp_click', page_slug: 'acelerador', cta_location: 'obrigado' }); });
 </script>
